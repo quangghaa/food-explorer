@@ -10,6 +10,7 @@ import Transaction from './pages/Transaction';
 import Demo from './pages/Demo';
 import BlockDetail from './pages/BlockDetail';
 import TestChart from './pages/TestChart';
+import Diary from './pages/Diary';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
           <Route path='/block/:id' element={<BlockDetail />} />
           <Route path='/transactions' element={<Transaction />} /> 
           <Route path='/transaction/:id' element={<TransactionDetail />} />
+          <Route path='/diaries' element={<Diary />} /> 
+          <Route path='/diary/:id' element={<DiaryDetail />} />
+          <Route path='/certificates' element={<Transaction />} /> 
+          <Route path='/certificate/:id' element={<TransactionDetail />} />
           <Route path='/demo' element={<Demo />} />
           <Route path='/test' element={<TestChart />} />
         </Routes>

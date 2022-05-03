@@ -11,10 +11,10 @@ import { vndConverter } from "../../utils/Utils";
 import TransactionCount from "./elements/TransactionCount";
 import BlockCount from "./elements/BlockCount";
 import AccountCount from "./elements/AccountCount";
-import ValueCount from "./elements/ValueCount";
+import DiaryCount from "./elements/DiaryCount";
 import LatestBlocks from "./elements/LatestBlocks";
 import LatestTransactions from "./elements/LatestTransactions";
-import ValueCount24h from "./elements/ValueCount24h";
+import CertificateCount from "./elements/CertificateCount";
 import TransactionCount24h from "./elements/TransactionCount24h";
 import AccountsChart from "../../components/Charts/AccountsChart";
 import TransactionsChart from "../../components/Charts/TransactionsChart";
@@ -27,7 +27,7 @@ const Home = () => {
 
             <div className="search-section">
                 <div className="container">
-                    <h3>The Digital Bank Blockchain Explorer</h3>
+                    <h3>The Blockchain Explorer</h3>
                     <SearchTool />
                     <br />
                     <span className="sponsored">Sponsored: <DollarCircleFilled /> Vnpay: Crypto Taxes Done in Minutes! <a href="#">Calculate My Taxes.</a></span>
@@ -49,22 +49,22 @@ const Home = () => {
                             <div className="vertical-hr">
                                 <TransactionCount />
                                 <hr />
-                                <ValueCount />
+                                <DiaryCount />
                             </div>
 
                         </Col>
                         <Col span={8}>
                             <div className="">
-                                <TransactionCount24h />
+                                <CertificateCount />
+
                                 <hr />
-                                <ValueCount24h />
                             </div>
 
                         </Col>
                     </Row>
                 </div>
 
-                <Row gutter={16} className="daily-chart-section">
+                {/* <Row gutter={16} className="daily-chart-section">
                     <Col span={12}>
                         <AccountsChart />
                     </Col>
@@ -72,7 +72,7 @@ const Home = () => {
                     <Col span={12}>
                         <TransactionsChart />
                     </Col>
-                </Row>
+                </Row> */}
 
                 <Row gutter={16} className="latest-section">
                     <Col span={12}>

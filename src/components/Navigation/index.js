@@ -24,6 +24,14 @@ const Navigation = () => {
         window.location.href = '/transactions';
     }
 
+    const toDiaries = () => {
+        window.location.href = '/diaries';
+    }
+
+    const toCertificates = () => {
+        window.location.href = '/certificates';
+    }
+
     const menu = (
         <Menu>
             <Menu.Item onClick={toAccounts}>
@@ -41,6 +49,16 @@ const Navigation = () => {
                     Transactions
                 {/* </Link> */}
             </Menu.Item>
+            <Menu.Item onClick={toDiaries}>
+                {/* <Link to='/transactions'> */}
+                    Diaries
+                {/* </Link> */}
+            </Menu.Item>
+            <Menu.Item onClick={toCertificates}>
+                {/* <Link to='/transactions'> */}
+                    Certificates
+                {/* </Link> */}
+            </Menu.Item>
         </Menu>
     );
 
@@ -53,7 +71,7 @@ const Navigation = () => {
                 <li>
                     <Dropdown overlay={menu}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                            Digital Bank &nbsp;<DownOutlined />
+                            VN Trust Food &nbsp;<DownOutlined />
                         </a>
                     </Dropdown>
                 </li>

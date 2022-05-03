@@ -4,11 +4,12 @@ import { TransactionOutlined } from '@ant-design/icons';
 import { useContentTypeGetTotal } from "../../../hooks/useContentType";
 import { vndConverter } from "../../../utils/Utils";
 
-const ValueCount24h = () => {
+const DiaryCount = () => {
     const {
         contentTypeTotal: totalValue, 
         getContentType
-    } = useContentTypeGetTotal('amount/daily?date=today');
+    } = useContentTypeGetTotal('balance/total');
+
 
     useEffect(() => {
         setInterval(() => {
@@ -24,12 +25,12 @@ const ValueCount24h = () => {
                     <TransactionOutlined />
                 </span>
                 <span className="block-info">
-                    <span className="info-title">24h Value</span><br />
-                    <span className="info-content">{vndConverter(totalValue)} <span className="info-unit">VND</span></span>
+                    <span className="info-title">Diary</span><br />
+                    <span className="info-content">{vndConverter(totalValue)}</span>
                 </span>
             </div>
         </>
     )
 }
 
-export default ValueCount24h
+export default DiaryCount

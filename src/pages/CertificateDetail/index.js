@@ -5,7 +5,7 @@ import Detail from "./Detail";
 import { useLocation } from "react-router";
 import { useContentTypeGetOne } from "../../hooks/useContentType";
 
-const DiaryDetail = (props) => {
+const CertificateDetail = (props) => {
     const location = useLocation();
     const params = location.pathname.split('/');
     let id = 0;
@@ -17,7 +17,7 @@ const DiaryDetail = (props) => {
         <>
             <Header />
             <div className="body">
-                <div className="title">Diary Details</div>
+                <div className="title">Certificate Details</div>
                 <hr />
                 <div className="subtitle">Other Infomation</div>
                 {Object.keys(account).length > 0 ? 
@@ -30,4 +30,4 @@ const DiaryDetail = (props) => {
     )
 }
 
-export default DiaryDetail;
+export default CertificateDetail;

@@ -11,6 +11,9 @@ import Demo from './pages/Demo';
 import BlockDetail from './pages/BlockDetail';
 import TestChart from './pages/TestChart';
 import Diary from './pages/Diary';
+import DiaryDetail from './pages/DiaryDetail';
+import Certificate from './pages/Certificate';
+import CertificateDetail from './pages/CertificateDetail';
 
 function App() {
   return (
@@ -27,8 +30,8 @@ function App() {
           <Route path='/transaction/:id' element={<TransactionDetail />} />
           <Route path='/diaries' element={<Diary />} /> 
           <Route path='/diary/:id' element={<DiaryDetail />} />
-          <Route path='/certificates' element={<Transaction />} /> 
-          <Route path='/certificate/:id' element={<TransactionDetail />} />
+          <Route path='/certificates' element={<Certificate />} /> 
+          <Route path='/certificate/:id' element={<CertificateDetail />} />
           <Route path='/demo' element={<Demo />} />
           <Route path='/test' element={<TestChart />} />
         </Routes>

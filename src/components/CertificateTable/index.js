@@ -16,57 +16,57 @@ const columns = [
         )
     },
     {
-        Header: 'Account ID',
-        accessor: 'account_id',
+        Header: 'Business ID',
+        accessor: 'BusinessId',
         Cell: ({ cell: { value } }) => (
             <>
+                <div className="wrap-long-text">
                 <span className="cell-icon"><QuestionCircleOutlined /></span>
                 <span className="cell-id" >
-                    <Link to={`/account/${value}`}>
+                    {/* <Link to={`/account/${value}`}> */}
                         {value}
-                    </Link>
+                    {/* </Link> */}
                 </span>
+                </div>
+                
             </>
         )
     },
     {
-        Header: 'Initial Time',
-        accessor: 'recent_time',
-    },
-    {
-        Header: 'Balance',
-        accessor: 'balance',
+        Header: 'Certificates',
+        accessor: 'Certificates',
         Cell: ({ cell: { value } }) => (
             <>
-                <span className="cell-vnd">
-                    {value}
-                    {/* <span className="vnd-unit">VND</span> */}
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
                 </span>
+                </div>
+                
             </>
         )
     },
     {
-        Header: 'Blockade Amount',
-        accessor: 'blockade_amount',
-        Cell: ({ cell: { value } }) => (
-            <>
-                <span className="cell-vnd">
-                    {value}
-                    {/* <span className="vnd-unit">VND</span> */}
-                </span>
-            </>
-        )
+        Header: 'Create Time',
+        accessor: 'Createtime',
+    },
+    {
+        Header: 'Recent Time',
+        accessor: 'RecentTime',
     },
 
 ];
 
 const trimData = (data = []) =>
-    data.map(({ id, account_id, recent_time, balance, blockade_amount }, i) => ({
+    data.map(({ id, BusinessId, Certificates, Createtime, RecentTime }, i) => ({
         // id: i+1,
-        account_id,
-        recent_time: formatTime(recent_time),
-        balance: vndConverter(balance),
-        blockade_amount: vndConverter(blockade_amount),
+        BusinessId,
+        Certificates,
+        Createtime: formatTime(Createtime),
+        RecentTime: formatTime(RecentTime),
     }));
 
 const initialState = {
@@ -108,7 +108,7 @@ const CertificateTable = () => {
 
     const { isLoading, error, data, isSuccess } = useQuery(
         ['accounts', queryPageIndex, queryPageSize],
-        () => getListContentType('/accounts', { page: queryPageIndex, limit: queryPageSize }),
+        () => getListContentType('/certificates', { page: queryPageIndex, limit: queryPageSize }),
         {
             keepPreviousData: true,
             staleTime: Infinity,
@@ -162,7 +162,7 @@ const CertificateTable = () => {
 
     const {
         contentTypeTotal: totalAccounts
-    } = useContentTypeGetTotal('account/total');
+    } = useContentTypeGetTotal('certificate/total');
 
     React.useEffect(() => {
         if (totalAccounts != undefined) {

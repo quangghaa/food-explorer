@@ -538,12 +538,19 @@
 
 .cell-id {
   color: #34a5f0;
-
 }
 
 .cell-id:hover {
   cursor: pointer;
   color: #2679b1;
+}
+
+.wrap-long-text {
+  max-width: 200px;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  line-height: initial;
 }
 
 .cell-icon {

@@ -13,7 +13,7 @@ import BlockCount from "./elements/BlockCount";
 import AccountCount from "./elements/AccountCount";
 import DiaryCount from "./elements/DiaryCount";
 import LatestBlocks from "./elements/LatestBlocks";
-import LatestTransactions from "./elements/LatestTransactions";
+import LatestAccounts from "./elements/LatestAccounts";
 import CertificateCount from "./elements/CertificateCount";
 import TransactionCount24h from "./elements/TransactionCount24h";
 import AccountsChart from "../../components/Charts/AccountsChart";
@@ -79,7 +79,7 @@ const Home = () => {
                         <LatestBlocks />
                     </Col>
                     <Col span={12}>
-                        <LatestTransactions />
+                        <LatestAccounts />
                     </Col>
                 </Row>
 

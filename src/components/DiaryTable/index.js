@@ -16,8 +16,86 @@ const columns = [
         )
     },
     {
-        Header: 'Account ID',
-        accessor: 'account_id',
+        Header: 'Title',
+        accessor: 'title',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+                </div>
+                
+            </>
+        )
+    },
+    {
+        Header: 'Content',
+        accessor: 'content',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+                </div>
+            </>
+        )
+    },
+    {
+        Header: 'Related Area',
+        accessor: 'relatedArea',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+                </div>
+            </>
+        )
+    },
+    {
+        Header: 'Related Batch',
+        accessor: 'relatedBatch',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+            </>
+        )
+    },
+    {
+        Header: 'Related Product',
+        accessor: 'relatedProduct',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+            </>
+        )
+    },
+
+    {
+        Header: 'Create By',
+        accessor: 'createBy',
         Cell: ({ cell: { value } }) => (
             <>
                 <span className="cell-icon"><QuestionCircleOutlined /></span>
@@ -30,43 +108,22 @@ const columns = [
         )
     },
     {
-        Header: 'Initial Time',
-        accessor: 'recent_time',
-    },
-    {
-        Header: 'Balance',
-        accessor: 'balance',
-        Cell: ({ cell: { value } }) => (
-            <>
-                <span className="cell-vnd">
-                    {value}
-                    {/* <span className="vnd-unit">VND</span> */}
-                </span>
-            </>
-        )
-    },
-    {
-        Header: 'Blockade Amount',
-        accessor: 'blockade_amount',
-        Cell: ({ cell: { value } }) => (
-            <>
-                <span className="cell-vnd">
-                    {value}
-                    {/* <span className="vnd-unit">VND</span> */}
-                </span>
-            </>
-        )
+        Header: 'Create Time',
+        accessor: 'createtime',
     },
 
 ];
 
 const trimData = (data = []) =>
-    data.map(({ id, account_id, recent_time, balance, blockade_amount }, i) => ({
+    data.map(({ id, title, content, createBy, relatedArea, relatedBatch, relatedProduct, createtime }, i) => ({
         // id: i+1,
-        account_id,
-        recent_time: formatTime(recent_time),
-        balance: vndConverter(balance),
-        blockade_amount: vndConverter(blockade_amount),
+        title,
+        content,
+        createBy,
+        relatedArea,
+        relatedBatch,
+        relatedProduct,
+        createtime: formatTime(createtime),
     }));
 
 const initialState = {
@@ -108,7 +165,7 @@ const DiaryTable = () => {
 
     const { isLoading, error, data, isSuccess } = useQuery(
         ['accounts', queryPageIndex, queryPageSize],
-        () => getListContentType('/accounts', { page: queryPageIndex, limit: queryPageSize }),
+        () => getListContentType('/diaries', { page: queryPageIndex, limit: queryPageSize }),
         {
             keepPreviousData: true,
             staleTime: Infinity,
@@ -162,7 +219,7 @@ const DiaryTable = () => {
 
     const {
         contentTypeTotal: totalAccounts
-    } = useContentTypeGetTotal('account/total');
+    } = useContentTypeGetTotal('diary/total');
 
     React.useEffect(() => {
         if (totalAccounts != undefined) {

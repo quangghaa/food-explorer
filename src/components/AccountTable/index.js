@@ -16,38 +16,68 @@ const columns = [
         )
     },
     {
-        Header: 'Account ID',
-        accessor: 'account_id',
+        Header: 'Account Name',
+        accessor: 'Name',
         Cell: ({ cell: { value } }) => (
             <>
+                <div className="wrap-long-text">
                 <span className="cell-icon"><QuestionCircleOutlined /></span>
                 <span className="cell-id" >
-                    <Link to={`/account/${value}`}>
+                    {/* <Link to={`/account/${value}`}> */}
                         {value}
-                    </Link>
+                    {/* </Link> */}
                 </span>
+                </div>
+                
             </>
         )
     },
     {
-        Header: 'Initial Time',
-        accessor: 'recent_time',
-    },
-    {
-        Header: 'Balance',
-        accessor: 'balance',
+        Header: 'Address',
+        accessor: 'Address',
         Cell: ({ cell: { value } }) => (
             <>
-                <span className="cell-vnd">
-                    {value}
-                    {/* <span className="vnd-unit">VND</span> */}
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
                 </span>
+                </div>
+                
             </>
         )
     },
     {
-        Header: 'Blockade Amount',
-        accessor: 'blockade_amount',
+        Header: 'Phone Number',
+        accessor: 'Phonenumber',
+        Cell: ({ cell: { value } }) => (
+            <>
+                <div className="wrap-long-text">
+                <span className="cell-icon"><QuestionCircleOutlined /></span>
+                <span className="cell-id" >
+                    {/* <Link to={`/account/${value}`}> */}
+                        {value}
+                    {/* </Link> */}
+                </span>
+                </div>
+                
+            </>
+        )
+    },
+    {
+        Header: 'Status',
+        accessor: 'Status',
+    },
+    {
+        Header: 'Recent Time',
+        accessor: 'RecentTime',
+    },
+    
+    {
+        Header: 'Balance',
+        accessor: 'Balance',
         Cell: ({ cell: { value } }) => (
             <>
                 <span className="cell-vnd">
@@ -61,12 +91,14 @@ const columns = [
 ];
 
 const trimData = (data = []) =>
-    data.map(({ id, account_id, recent_time, balance, blockade_amount }, i) => ({
+    data.map(({ id, Name, Address, Phonenumber, Balance, Status, RecentTime }, i) => ({
         // id: i+1,
-        account_id,
-        recent_time: formatTime(recent_time),
-        balance: vndConverter(balance),
-        blockade_amount: vndConverter(blockade_amount),
+        Name,
+        Address,
+        Phonenumber,
+        Status,
+        RecentTime: formatTime(RecentTime),
+        Balance: vndConverter(Balance),
     }));
 
 const initialState = {

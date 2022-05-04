@@ -17,35 +17,22 @@ const columns = [
     },
     {
         Header: 'Transaction ID',
-        accessor: 'txhash',
+        accessor: 'txId',
         Cell: ({ cell: { value } }) => (
             <>
                 <span className="cell-icon"><QuestionCircleOutlined /></span>
                 <span className="cell-id">
-                    <Link to={`/transaction/${value}`}>
+                    {/* <Link to={`/transaction/${value}`}> */}
                         {value}
-                    </Link>
+                    {/* </Link> */}
                 </span>
 
             </>
         )
     },
     {
-        Header: 'Sender ID',
-        accessor: 'sender_id',
-        Cell: ({ cell: { value } }) => (
-            <>
-                <span className="cell-icon"><UserOutlined /></span>
-                <span className="cell-id">
-
-                    {value}
-                </span>
-            </>
-        )
-    },
-    {
-        Header: 'Receiver ID',
-        accessor: 'receiver_id',
+        Header: 'Create By',
+        accessor: 'createBy',
         Cell: ({ cell: { value } }) => (
             <>
                 <span className="cell-icon"><UserOutlined /></span>
@@ -56,40 +43,18 @@ const columns = [
         )
     },
     {
-        Header: 'Process Time',
-        accessor: 'working_date',
-    },
-    {
-        Header: 'Amount',
-        accessor: 'amount',
-        Cell: ({ cell: { value } }) => (
-            <div className="amount-cell">
-                <span className="cell-vnd">
-                    {vndConverter(value)}
-                    {/* <span className="vnd-unit">VND</span> */}
-                </span>
-            </div>
-        )
-    },
-    {
-        Header: 'Action',
-        accessor: 'action',
-        Cell: ({ cell: { value } }) => (
-            <span className="debit">{value}</span>
-        )
+        Header: 'Create Time',
+        accessor: 'createtime',
     },
 
 ];
 
 const trimData = (data = []) =>
-    data.map(({ id, txhash, sender_id, receiver_id, working_date, amount, action }) => ({
+    data.map(({ id, txId, createBy, createtime}) => ({
         id,
-        txhash,
-        sender_id,
-        receiver_id,
-        working_date: formatTime(working_date),
-        amount: amount,
-        action: action
+        txId,
+        createBy,
+        createtime: formatTime(createtime),
     }));
 
 const initialState = {
@@ -183,7 +148,7 @@ const TransactionTable = () => {
 
     const {
         contentTypeTotal: totalTransactions
-    } = useContentTypeGetTotal('transactions/total');
+    } = useContentTypeGetTotal('transaction/total');
 
     React.useEffect(() => {
         if (totalTransactions != undefined) {

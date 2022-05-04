@@ -8,7 +8,7 @@ const LatestBlocks = () => {
     const {
         contentTypeList: latestBlocks,
         getListContentType
-    } = useContentTypeList('blocks/recent?page=0&limit=10');
+    } = useContentTypeList('blocks/recent');
 
     useEffect(() => {
         setInterval(() => {

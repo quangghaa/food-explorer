@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
-import { TransactionOutlined } from '@ant-design/icons';
+import { FileDoneOutlined } from '@ant-design/icons';
 
 import { useContentTypeGetTotal } from "../../../hooks/useContentType";
 import { vndConverter } from "../../../utils/Utils";
 
 const CertificateCount = () => {
     const {
-        contentTypeTotal: totalValue, 
+        contentTypeTotal: totalCer, 
         getContentType
-    } = useContentTypeGetTotal('amount/daily?date=today');
+    } = useContentTypeGetTotal('certificate/total');
 
     useEffect(() => {
         setInterval(() => {
@@ -21,11 +21,11 @@ const CertificateCount = () => {
         <>
             <div className="block">
                 <span className="block-icon">
-                    <TransactionOutlined />
+                    <FileDoneOutlined />
                 </span>
                 <span className="block-info">
                     <span className="info-title">Certificate</span><br />
-                    <span className="info-content">{vndConverter(totalValue)}</span>
+                    <span className="info-content">{totalCer} <span className="info-unit">certificates</span></span>
                 </span>
             </div>
         </>

@@ -7,7 +7,7 @@ const BlockCount = () => {
     const {
         contentTypeTotal: totalBlocks, 
         getContentType
-    } = useContentTypeGetTotal('blocks/total');
+    } = useContentTypeGetTotal('block/total');
 
 
     useEffect(() => {

@@ -3,7 +3,7 @@ export const vndConverter = (vnd) => {
         return vnd.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
         // return vnd.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     }
-    return vnd.toString();
+    return vnd;
 }
 
 export const formatTime = (timestring) => {

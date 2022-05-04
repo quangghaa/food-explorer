@@ -22,9 +22,9 @@ const columns = [
             <>
                 <span className="cell-icon"><QuestionCircleOutlined /></span>
                 <span className="cell-id">
-                    <Link to={`/block/${value}`}>
+                    {/* <Link to={`/block/${value}`}> */}
                         {value}
-                    </Link>
+                    {/* </Link> */}
                 </span>
             </>
         )
@@ -181,7 +181,7 @@ const BlockTable = () => {
 
     const {
         contentTypeTotal: totalBlocks
-    } = useContentTypeGetTotal('blocks/total');
+    } = useContentTypeGetTotal('block/total');
 
     React.useEffect(() => {
         if (totalBlocks != undefined) {

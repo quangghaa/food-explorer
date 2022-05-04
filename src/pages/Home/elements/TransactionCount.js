@@ -7,7 +7,7 @@ const TransactionCount = () => {
     const {
         contentTypeTotal: totalTrans, 
         getContentType
-    } = useContentTypeGetTotal('transactions/total');
+    } = useContentTypeGetTotal('transaction/total');
 
     useEffect(() => {
         let id = setInterval(() => {

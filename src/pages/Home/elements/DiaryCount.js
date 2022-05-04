@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
-import { TransactionOutlined } from '@ant-design/icons';
+import { TransactionOutlined, ReadOutlined } from '@ant-design/icons';
 
 import { useContentTypeGetTotal } from "../../../hooks/useContentType";
 import { vndConverter } from "../../../utils/Utils";
 
 const DiaryCount = () => {
     const {
-        contentTypeTotal: totalValue, 
+        contentTypeTotal: totalDia, 
         getContentType
-    } = useContentTypeGetTotal('balance/total');
+    } = useContentTypeGetTotal('diary/total');
 
 
     useEffect(() => {
@@ -22,11 +22,11 @@ const DiaryCount = () => {
         <>
             <div className="block">
                 <span className="block-icon">
-                    <TransactionOutlined />
+                    <ReadOutlined />
                 </span>
                 <span className="block-info">
                     <span className="info-title">Diary</span><br />
-                    <span className="info-content">{vndConverter(totalValue)}</span>
+                    <span className="info-content">{totalDia} <span className="info-unit">diaries</span></span>
                 </span>
             </div>
         </>
